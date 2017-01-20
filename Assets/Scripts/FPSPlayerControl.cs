@@ -62,6 +62,18 @@ public class FPSPlayerControl : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            if (gameUIManager.DisplayMeasurement)
+            {
+                gameUIManager.DisplayMeasurement = false;
+            }
+            else
+            {
+                gameUIManager.DisplayMeasurement = true;
+            }
+        }
     }
 }
         

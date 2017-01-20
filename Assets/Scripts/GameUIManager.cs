@@ -15,6 +15,8 @@ public class GameUIManager : MonoBehaviour {
     public GameObject DistanceMeasurementObject;
     private GameObject player;
     FPSPlayerControl fpsPlayerControl;
+    public bool DisplayMeasurement = true;
+    public GameObject DisplayMeasurementParent;
 
 
     void Start()
@@ -28,14 +30,25 @@ public class GameUIManager : MonoBehaviour {
         UpdateDistanceMeasurement();
     }
     
-
-
-
-private void UpdateDistanceMeasurement()
-{
-    if (DistanceMeasurementObject != null)
+    void UpdateDistanceMeasurement()
     {
-        gameUIText.DistanceToObjectText.text = Mathf.Round(Vector3.Distance(DistanceMeasurementObject.transform.position, player.transform.position)).ToString();
+        if (DistanceMeasurementObject != null)
+        {   
+            if (DisplayMeasurement)
+            {
+                if (!DisplayMeasurementParent.activeSelf)
+                {
+                    DisplayMeasurementParent.SetActive(true);
+                }
+                gameUIText.DistanceToObjectText.text = Mathf.Round(Vector3.Distance(DistanceMeasurementObject.transform.position, player.transform.position)).ToString();
+            }
+            else
+            {
+                if (DisplayMeasurementParent.activeSelf)
+                {
+                    DisplayMeasurementParent.SetActive(false);
+                }
+            }
+        }
     }
-}
 }
