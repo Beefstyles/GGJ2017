@@ -7,20 +7,31 @@ public class FPSPlayerControl : MonoBehaviour {
     private RaycastHit hit;
     private Camera fpsCam;
     public Image Crosshair;
-    public Sprite ActiveCrosshair, NormalCrosshair;
+    public Texture ActiveCrosshair, NormalCrosshair;
     private bool ActiveCrosshairSet = false;
+    Rect crosshairRect;
+    private Texture crosshairToDraw;
 
 	void Start ()
     {
         fpsCam = GetComponentInChildren<Camera>();
-        Crosshair.sprite = NormalCrosshair;
+        crosshairToDraw = NormalCrosshair;
+        float crosshairSize = Screen.width * 0.01F;
+        crosshairRect = new Rect(Screen.width / 2 - crosshairSize / 2,
+            Screen.height / 2 - crosshairSize / 2,
+            crosshairSize, crosshairSize);
 	}
+
+    void OnGUI()
+    {
+        GUI.DrawTexture(crosshairRect, crosshairToDraw);
+    }
 
     void Update()
     {
         if (ActiveCrosshairSet)
         {
-            Crosshair.sprite = NormalCrosshair;
+            crosshairToDraw = NormalCrosshair;
             ActiveCrosshairSet = false;
         }
 
@@ -30,7 +41,7 @@ public class FPSPlayerControl : MonoBehaviour {
             {
                 if (!ActiveCrosshairSet)
                 {
-                    Crosshair.sprite = ActiveCrosshair;
+                    crosshairToDraw = ActiveCrosshair;
                     ActiveCrosshairSet = true;
                 }
                 if (Input.GetButtonDown("Fire1"))
