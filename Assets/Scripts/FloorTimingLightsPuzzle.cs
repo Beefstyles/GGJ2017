@@ -15,7 +15,8 @@ public class FloorTimingLightsPuzzle : MonoBehaviour {
     public GameObject floors;
     public FallingFloorTiming[] fallingFloorTimingObj;
 
-    private Color teal = new Color(0, 128, 128);
+    private Color32 teal = new Color32(0, 128, 128,1);
+   
 
     private LightColours chosenLightColour;
 
