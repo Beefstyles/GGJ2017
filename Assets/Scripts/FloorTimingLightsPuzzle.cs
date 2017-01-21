@@ -24,6 +24,10 @@ public class FloorTimingLightsPuzzle : MonoBehaviour {
     void Start ()
     {
         fallingFloorTimingObj = floors.GetComponentsInChildren<FallingFloorTiming>();
+        foreach(var lightFloors in fallingFloorTimingObj)
+        {
+            lightFloors.gameObject.SetActive(true);
+        }
         mainSpotLight = GetComponentInChildren<Light>();
         mainSpotLight.color = Color.blue;
     }
@@ -43,7 +47,7 @@ public class FloorTimingLightsPuzzle : MonoBehaviour {
 
     void PickRandomLightColour()
     {
-        chosenLightColour = (LightColours)Random.Range(0, 5);
+        chosenLightColour = (LightColours)Random.Range(0, 6);
         ChangeLightColour(chosenLightColour);
         SendLightColour(chosenLightColour);
     }

@@ -3,52 +3,37 @@ using System.Collections;
 
 public class FallingFloorTiming : MonoBehaviour {
 
-    //Color Blue, Green, Purple,Red, Teal, Yellow
+    //Color Blue, Green, Purple, Red, Teal, Yellow
 
     public FloorTimingLightsPuzzle.LightColours lc;
     private bool floorIsActive = true;
 
+    
     public void ReceiveLightColour(FloorTimingLightsPuzzle.LightColours lightColour)
     {
         if(lightColour == lc)
         {
-            FloorDelayToTransparentAndBack(true);
-            floorIsActive = true;
+            FloorDelayToTransparentAndBack(false);
+            floorIsActive = false;
         }
         else
         {
-            if (floorIsActive)
+            if (!floorIsActive)
             {
-                FloorDelayToTransparentAndBack(false);
+                FloorDelayToTransparentAndBack(true);
+                floorIsActive = true;
             }
         }
     }
 
-
-    IEnumerator FloorDelayToTransparentAndBack(bool floorEnabled)
+    void FloorDelayToTransparentAndBack(bool enableFloor)
     {
-        float alpha = transform.GetComponent<MeshRenderer>().material.color.a;
-        Color currentColour;
-        currentColour = transform.GetComponent<MeshRenderer>().material.color;
-        if (!floorEnabled)
+        if (!enableFloor)
         {
-            for (float t = 0F; t < 0.5; t += Time.deltaTime)
-            {
-                currentColour.a = Mathf.Lerp(alpha, 0, t);
-                transform.GetComponent<MeshRenderer>().material.color = currentColour;
-                yield return null;
-            }
             DisableFloor();
         }
-
         else
         {
-            for (float t = 0F; t < .5; t += Time.deltaTime)
-            {
-                currentColour.a = Mathf.Lerp(0, alpha, t);
-                transform.GetComponent<MeshRenderer>().material.color = currentColour;
-                yield return null;
-            }
             EnableFloor();
         }
     }
