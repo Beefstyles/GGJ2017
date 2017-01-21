@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RotateObject : MonoBehaviour {
 
-    private float rotationSpeed = 50F;
+    private float rotationSpeed = 25F;
     private Quaternion targetRot;
     
 	void Start ()
