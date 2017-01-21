@@ -5,12 +5,14 @@ public class ButtonSequencePuzzle : MonoBehaviour {
 
     public StandardButton[] sbArray;
     //Order : 3, 4, 2, 5, 1
-    int[] orderArray = new int[5];
+    public int NumberOfButtonsInPuzzle;
+    int[] orderArray;
     int orderArrayPosition = 0;
     public bool PuzzleSolved = false;
 
 	void Start ()
     {
+        orderArray = new int[NumberOfButtonsInPuzzle];
         sbArray = GetComponentsInChildren<StandardButton>();
         ResetButtons();
     }

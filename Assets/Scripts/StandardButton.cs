@@ -25,17 +25,16 @@ public class StandardButton : MonoBehaviour {
             if (!buttonSequencePuzzle.PuzzleSolved)
             {
                 if (ButtonOn)
-            {
-                ButtonOn = false;
-            }
-            else
-            {
-                ButtonOn = true;
-                buttonSequencePuzzle.ReceiveNumber(ButtonNumber);
-            }
+                {
+                    ButtonOn = false;
+                }
+                else
+                {
+                    ButtonOn = true;
+                    buttonSequencePuzzle.ReceiveNumber(ButtonNumber);
+                }
            }
         }
-        
     }
 
     void Update()
