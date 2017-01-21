@@ -5,14 +5,17 @@ public class ButtonSequencePuzzle : MonoBehaviour {
 
     public StandardButton[] sbArray;
     //Order : 3, 4, 2, 5, 1
+    
     public int NumberOfButtonsInPuzzle;
     int[] orderArray;
+    int[] correctOrderArray;
     int orderArrayPosition = 0;
     public bool PuzzleSolved = false;
 
 	void Start ()
     {
         orderArray = new int[NumberOfButtonsInPuzzle];
+        correctOrderArray = new int[5] { 3, 4, 2, 5, 1 };
         sbArray = GetComponentsInChildren<StandardButton>();
         ResetButtons();
     }
@@ -38,63 +41,55 @@ public class ButtonSequencePuzzle : MonoBehaviour {
         switch (orderArrayPosition)
         {
             case (0):
-                if(orderArray[orderArrayPosition] == 3)
+                if(orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
-                    Debug.Log("Correct!");
                     orderArrayPosition++;
                     Debug.Log(orderArrayPosition);
                 }
                 else
                 {
-                    Debug.Log("Wrong");
                     orderArrayPosition = 0;
                     ResetButtons();
                 }
                 break;
             case (1):
-                if (orderArray[orderArrayPosition] == 4)
+                if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
-                    Debug.Log("Correct!");
                     orderArrayPosition++;
                     Debug.Log(orderArrayPosition);
                 }
                 else
                 {
-                    Debug.Log("Wrong");
                     orderArrayPosition = 0;
                     ResetButtons();
                 }
                 break;
             case (2):
-                if (orderArray[orderArrayPosition] == 2)
+                if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
-                    Debug.Log("Correct!");
                     orderArrayPosition++;
                     Debug.Log(orderArrayPosition);
                 }
                 else
                 {
-                    Debug.Log("Wrong");
                     orderArrayPosition = 0;
                     ResetButtons();
                 }
                 break;
             case (3):
-                if (orderArray[orderArrayPosition] == 5)
+                if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
-                    Debug.Log("Correct!");
                     orderArrayPosition++;
                     Debug.Log(orderArrayPosition);
                 }
                 else
                 {
-                    Debug.Log("Wrong");
                     orderArrayPosition = 0;
                     ResetButtons();
                 }
                 break;
             case (4):
-                if (orderArray[orderArrayPosition] == 1)
+                if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
                     Debug.Log(orderArrayPosition);
                     Debug.Log("Correct!");
