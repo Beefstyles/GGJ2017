@@ -27,18 +27,31 @@ public class FallingFallTrigger : MonoBehaviour {
     {
         if (isWalkable)
         {
-            Debug.Log("Safe");
+            //Debug.Log("Safe");
         }
         else
         {
-            StartCoroutine("DelayFloorFalling");
+            StartCoroutine("FloorDelayToTransparent");
         }
 
     }
 
-    IEnumerator DelayFloorFalling()
+    IEnumerator FloorDelayToTransparent()
     {
-        yield return new WaitForSeconds(DelayForFloorFalling);
+        float alpha = transform.GetComponent<MeshRenderer>().material.color.a;
+        Color currentColour;
+        currentColour = transform.GetComponent<MeshRenderer>().material.color;
+        for (float t = 0F; t< DelayForFloorFalling; t+= Time.deltaTime)
+        {
+            currentColour.a = Mathf.Lerp(alpha, 0, t);
+            transform.GetComponent<MeshRenderer>().material.color = currentColour;
+            yield return null;
+        }
+        DisableFloor();
+    }
+
+    void DisableFloor()
+    {
         gameObject.SetActive(false);
     }
 
