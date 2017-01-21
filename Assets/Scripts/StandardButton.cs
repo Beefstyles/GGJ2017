@@ -6,7 +6,7 @@ public class StandardButton : MonoBehaviour {
     public bool ButtonOn = false;
     public Material buttonOnMat, buttonOffMat;
     private MeshRenderer buttonMeshRenderer;
-    [Range(0,10)]
+    [Range(1,5)]
     public int ButtonNumber;
     ButtonSequencePuzzle buttonSequencePuzzle;
 
@@ -20,18 +20,22 @@ public class StandardButton : MonoBehaviour {
 
 	public void ActuateButton()
     {
-        if (ButtonOn)
-        {            
-            ButtonOn = false;
-        }
-        else
+        if (buttonSequencePuzzle != null)
         {
-            ButtonOn = true;
-            if(buttonSequencePuzzle != null)
+            if (!buttonSequencePuzzle.PuzzleSolved)
             {
+                if (ButtonOn)
+            {
+                ButtonOn = false;
+            }
+            else
+            {
+                ButtonOn = true;
                 buttonSequencePuzzle.ReceiveNumber(ButtonNumber);
             }
+           }
         }
+        
     }
 
     void Update()
