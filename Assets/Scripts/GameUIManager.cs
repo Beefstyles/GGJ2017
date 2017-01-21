@@ -7,7 +7,7 @@ public class GameUIManager : MonoBehaviour {
     [System.Serializable]
     public class GameUIText
     {
-        public Text DistanceToObjectText;
+        public Text DistanceToObjectText, LogText;
     }
 
     public GameUIText gameUIText;
@@ -27,7 +27,7 @@ public class GameUIManager : MonoBehaviour {
 
     void Update()
     {
-        UpdateDistanceMeasurement();
+        //UpdateDistanceMeasurement();
     }
     
     void UpdateDistanceMeasurement()

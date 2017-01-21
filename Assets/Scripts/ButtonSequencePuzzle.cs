@@ -15,7 +15,7 @@ public class ButtonSequencePuzzle : MonoBehaviour {
 	void Start ()
     {
         orderArray = new int[NumberOfButtonsInPuzzle];
-        correctOrderArray = new int[5] { 3, 4, 2, 5, 1 };
+        correctOrderArray = new int[4] { 3, 4, 2, 1};
         sbArray = GetComponentsInChildren<StandardButton>();
         ResetButtons();
     }

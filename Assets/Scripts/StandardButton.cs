@@ -6,7 +6,7 @@ public class StandardButton : MonoBehaviour {
     public bool ButtonOn = false;
     public Material buttonOnMat, buttonOffMat;
     private MeshRenderer buttonMeshRenderer;
-    [Range(1,5)]
+    [Range(1,6)]
     public int ButtonNumber;
     ButtonSequencePuzzle buttonSequencePuzzle;
 

@@ -14,6 +14,7 @@ public class FPSPlayerControl : MonoBehaviour
     Rect distanceToAudioSourceMeter;
     private Texture crosshairToDraw;
     StandardButton sb;
+    LogTextReader logTextReader;
     private RaycastHit distanceHit;
     GameUIManager gameUIManager;
     public GameObject DistanceMeasurementObject;
@@ -55,9 +56,14 @@ public class FPSPlayerControl : MonoBehaviour
                 if (Input.GetButtonDown("Fire1"))
                 {
                     sb = hit.transform.GetComponent<StandardButton>();
+                    logTextReader = hit.transform.GetComponent<LogTextReader>();
                     if (sb != null)
                     {
                         sb.ActuateButton();
+                    }
+                    if(logTextReader != null)
+                    {
+                        logTextReader.ReceiveClick();
                     }
                 }
             }
