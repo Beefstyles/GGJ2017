@@ -3,11 +3,11 @@ using System.Collections;
 
 public class RotateObject : MonoBehaviour {
 
-    private float rotationSpeed = 25F;
+    public float RotationSpeed = 25F;
 
 	void Update ()
     {
-        transform.Rotate(Vector3.up * Time.deltaTime * rotationSpeed);
+        transform.Rotate(Vector3.up * Time.deltaTime * RotationSpeed);
 	}
 
 }

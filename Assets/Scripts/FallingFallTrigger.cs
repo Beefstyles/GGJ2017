@@ -55,4 +55,14 @@ public class FallingFallTrigger : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
+    public void EnableFloor()
+    {
+        gameObject.SetActive(true);
+        Color currentColour;
+        currentColour = transform.GetComponent<MeshRenderer>().material.color;
+        currentColour.a = 1;
+        transform.GetComponent<MeshRenderer>().material.color = currentColour;
+    }
+
+
 }

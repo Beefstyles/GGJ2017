@@ -9,9 +9,11 @@ public class StandardButton : MonoBehaviour {
     [Range(1,6)]
     public int ButtonNumber;
     ButtonSequencePuzzle buttonSequencePuzzle;
+    ObjectShake objectShake;
 
     void Start()
     {
+        objectShake = GetComponent<ObjectShake>();
         buttonMeshRenderer = GetComponent<MeshRenderer>();
         buttonMeshRenderer.material = buttonOffMat;
 
@@ -27,11 +29,13 @@ public class StandardButton : MonoBehaviour {
                 if (ButtonOn)
                 {
                     ButtonOn = false;
+                    objectShake.StartShake(false);
                 }
                 else
                 {
                     ButtonOn = true;
                     buttonSequencePuzzle.ReceiveNumber(ButtonNumber);
+                    objectShake.StartShake(true);
                 }
            }
         }

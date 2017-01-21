@@ -4,15 +4,23 @@ using System.Collections;
 public class FallingFloorControl : MonoBehaviour {
 
     public bool WallPuzzleActive;
+    FallingFallTrigger[] fft;
+    public bool PathReset;
 
-	// Use this for initialization
 	void Start ()
     {
         WallPuzzleActive = true;
-
+        fft = GetComponentsInChildren<FallingFallTrigger>();
     }
 	
-	// Update is called once per frame
+    public void ResetLevel()
+    {
+        foreach (var floor in fft)
+        {
+            floor.EnableFloor();
+        }
+    }
+
 	void Update ()
     {
 	
