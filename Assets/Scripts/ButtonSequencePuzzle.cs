@@ -53,7 +53,7 @@ public class ButtonSequencePuzzle : MonoBehaviour {
                 {
                     orderArrayPosition++;
                     Debug.Log(orderArrayPosition);
-                    os.StartShake(true);
+                    os.StartShake(true);  
                 }
                 else
                 {

@@ -15,6 +15,8 @@ public class FPSPlayerControl : MonoBehaviour
     private Texture crosshairToDraw;
     StandardButton sb;
     LogTextReader logTextReader;
+    OrbTrialHandler orbTrial;
+    FinalPillarsHandler finalPillar;
     private RaycastHit distanceHit;
     GameUIManager gameUIManager;
     public GameObject DistanceMeasurementObject;
@@ -57,6 +59,8 @@ public class FPSPlayerControl : MonoBehaviour
                 {
                     sb = hit.transform.GetComponent<StandardButton>();
                     logTextReader = hit.transform.GetComponent<LogTextReader>();
+                    orbTrial = hit.transform.GetComponent<OrbTrialHandler>();
+                    finalPillar = hit.transform.GetComponent<FinalPillarsHandler>();
                     if (sb != null)
                     {
                         sb.ActuateButton();
@@ -64,6 +68,16 @@ public class FPSPlayerControl : MonoBehaviour
                     if(logTextReader != null)
                     {
                         logTextReader.ReceiveClick();
+                    }
+
+                    if(orbTrial != null)
+                    {
+                        orbTrial.SetOrb();
+                    }
+
+                    if(finalPillar != null)
+                    {
+                        finalPillar.ReceiveOrb();
                     }
                 }
             }
