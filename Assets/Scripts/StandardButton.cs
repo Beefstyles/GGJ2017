@@ -29,13 +29,11 @@ public class StandardButton : MonoBehaviour {
                 if (ButtonOn)
                 {
                     ButtonOn = false;
-                    //objectShake.StartShake(false);
                 }
                 else
                 {
                     ButtonOn = true;
                     buttonSequencePuzzle.ReceiveNumber(ButtonNumber, objectShake);
-                    //objectShake.StartShake(true);
                 }
            }
         }

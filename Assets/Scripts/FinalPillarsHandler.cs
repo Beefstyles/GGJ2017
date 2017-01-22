@@ -9,12 +9,14 @@ public class FinalPillarsHandler : MonoBehaviour {
     MasterControlScript masterControl;
     public MasterControlScript.OrbSpecification orbSpec;
     PlayerInventory playerInventory;
+    TerminalTextChanger terminalTextChanger;
 
 	// Use this for initialization
 	void Start ()
     {
         masterControl = FindObjectOfType<MasterControlScript>();
         playerInventory = FindObjectOfType<PlayerInventory>();
+        terminalTextChanger = FindObjectOfType<TerminalTextChanger>();
     }
 	
 	void Update ()
@@ -34,6 +36,7 @@ public class FinalPillarsHandler : MonoBehaviour {
                     {
                         Orb.SetActive(true);
                         masterControl.AlphaOrbSet = true;
+                        terminalTextChanger.ChangeTerminalText(MasterControlScript.OrbSpecification.Alpha);
                     }
                     break;
                 case (MasterControlScript.OrbSpecification.Beta):
@@ -41,6 +44,7 @@ public class FinalPillarsHandler : MonoBehaviour {
                     {
                         Orb.SetActive(true);
                         masterControl.BetaOrbSet = true;
+                        terminalTextChanger.ChangeTerminalText(MasterControlScript.OrbSpecification.Beta);
                     }
                     break;
                 case (MasterControlScript.OrbSpecification.Gamma):
@@ -48,6 +52,7 @@ public class FinalPillarsHandler : MonoBehaviour {
                     {
                         Orb.SetActive(true);
                         masterControl.GammaOrbSet = true;
+                        terminalTextChanger.ChangeTerminalText(MasterControlScript.OrbSpecification.Gamma);
                     }
                     break;
                 case (MasterControlScript.OrbSpecification.Theta):
@@ -55,6 +60,7 @@ public class FinalPillarsHandler : MonoBehaviour {
                     {
                         Orb.SetActive(true);
                         masterControl.ThetaOrbSet = true;
+                        terminalTextChanger.ChangeTerminalText(MasterControlScript.OrbSpecification.Theta);
                     }
                     break;
             }

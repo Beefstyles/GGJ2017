@@ -5,29 +5,26 @@ public class ButtonSequencePuzzle : MonoBehaviour {
 
     public StandardButton[] sbArray;
     public ObjectShake[] oShakeArray;
-    //Order : 3, 4, 2, 5, 1
+    //Order : 1, 4, 2, 3
     
     public int NumberOfButtonsInPuzzle;
     int[] orderArray;
     int[] correctOrderArray;
     int orderArrayPosition = 0;
     public bool PuzzleSolved = false;
+    public GameObject PuzzleStairs;
+    PuzzleStairsEnable puzzleStairsEnable;
 
 	void Start ()
     {
+        puzzleStairsEnable = FindObjectOfType<PuzzleStairsEnable>();
         orderArray = new int[NumberOfButtonsInPuzzle];
-        correctOrderArray = new int[4] { 3, 4, 2, 1};
+        correctOrderArray = new int[4] { 1, 4, 2, 3};
         sbArray = GetComponentsInChildren<StandardButton>();
         oShakeArray = GetComponentsInChildren<ObjectShake>();
-
+        PuzzleStairs.SetActive(false);
         ResetButtons();
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	
-	}
+    }	
 
     private void ResetButtons()
     {
@@ -52,7 +49,6 @@ public class ButtonSequencePuzzle : MonoBehaviour {
                 if(orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
                     orderArrayPosition++;
-                    Debug.Log(orderArrayPosition);
                     os.StartShake(true);  
                 }
                 else
@@ -65,7 +61,6 @@ public class ButtonSequencePuzzle : MonoBehaviour {
                 if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
                     orderArrayPosition++;
-                    Debug.Log(orderArrayPosition);
                     os.StartShake(true);
                 }
                 else
@@ -78,7 +73,6 @@ public class ButtonSequencePuzzle : MonoBehaviour {
                 if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
                     orderArrayPosition++;
-                    Debug.Log(orderArrayPosition);
                     os.StartShake(true);
                 }
                 else
@@ -91,10 +85,10 @@ public class ButtonSequencePuzzle : MonoBehaviour {
                 if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
                     os.StartShake(true);
-                    Debug.Log(orderArrayPosition);
                     Debug.Log("Correct!");
                     Debug.Log("Puzzle Solved!");
                     PuzzleSolved = true;
+                    EnableStairs();
                 }
                 else
                 {
@@ -104,5 +98,11 @@ public class ButtonSequencePuzzle : MonoBehaviour {
                 }
                 break;
         }
+    }
+
+    void EnableStairs()
+    {
+        PuzzleStairs.SetActive(true);
+        puzzleStairsEnable.StartCoroutine("StairsDelayToOpaque");
     }
 }

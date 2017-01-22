@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LogTextReader : MonoBehaviour {
 
-    public LogTextRepo.TerminalNumber TerminalNumber;
+    //public LogTextRepo.TerminalNumber TerminalNumber;
     GameUIManager gameUIManager;
     LogTextRepo logTextRepo;
 
@@ -16,10 +16,11 @@ public class LogTextReader : MonoBehaviour {
     public void ReceiveClick()
     {
         string logText;
-        if(logTextRepo.TerminalText.TryGetValue(TerminalNumber,out logText))
+        /*if(logTextRepo.TerminalText.TryGetValue(TerminalNumber,out logText))
             {
             gameUIManager.gameUIText.LogText.text = logText;
             }
+            */
     }
 	
 	// Update is called once per frame

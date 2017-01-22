@@ -46,7 +46,7 @@ public class FPSPlayerControl : MonoBehaviour
             ActiveCrosshairSet = false;
         }
 
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, 100F))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, 2F))
         {
             if (hit.transform.gameObject.tag == "Clickable")
             {
@@ -85,7 +85,7 @@ public class FPSPlayerControl : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
-            if (gameUIManager.DisplayMeasurement)
+            /*if (gameUIManager.DisplayMeasurement)
             {
                 gameUIManager.DisplayMeasurement = false;
             }
@@ -93,6 +93,7 @@ public class FPSPlayerControl : MonoBehaviour
             {
                 gameUIManager.DisplayMeasurement = true;
             }
+            */
         }
     }
 }
