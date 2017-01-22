@@ -30,24 +30,28 @@ public class TerminalTextChanger : MonoBehaviour {
                     {
                         ThreeDTextMesh.text = displayText;
                     }
+                textWrapper.UpdateText();
                 break;
             case (MasterControlScript.OrbSpecification.Beta):
                 if (logTextRepo.TerminalText.TryGetValue(MasterControlScript.OrbSpecification.Beta, out displayText))
                 {
                     ThreeDTextMesh.text = displayText;
                 }
+                textWrapper.UpdateText();
                 break;
             case (MasterControlScript.OrbSpecification.Gamma):
                 if (logTextRepo.TerminalText.TryGetValue(MasterControlScript.OrbSpecification.Gamma, out displayText))
                 {
                     ThreeDTextMesh.text = displayText;
                 }
+                textWrapper.UpdateText();
                 break;
             case (MasterControlScript.OrbSpecification.Theta):
                 if (logTextRepo.TerminalText.TryGetValue(MasterControlScript.OrbSpecification.Theta, out displayText))
                 {
                     ThreeDTextMesh.text = displayText;
                 }
+                textWrapper.UpdateText();
                 break;
         }
 
