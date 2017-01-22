@@ -49,7 +49,7 @@ public class ButtonSequencePuzzle : MonoBehaviour {
                 if(orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
                     orderArrayPosition++;
-                    os.StartShake(true);  
+                    //os.StartShake(true);  
                 }
                 else
                 {
@@ -61,7 +61,7 @@ public class ButtonSequencePuzzle : MonoBehaviour {
                 if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
                     orderArrayPosition++;
-                    os.StartShake(true);
+                    //os.StartShake(true);
                 }
                 else
                 {
@@ -73,7 +73,7 @@ public class ButtonSequencePuzzle : MonoBehaviour {
                 if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
                     orderArrayPosition++;
-                    os.StartShake(true);
+                    //os.StartShake(true);
                 }
                 else
                 {
@@ -84,7 +84,7 @@ public class ButtonSequencePuzzle : MonoBehaviour {
             case (3):
                 if (orderArray[orderArrayPosition] == correctOrderArray[orderArrayPosition])
                 {
-                    os.StartShake(true);
+                    //os.StartShake(true);
                     Debug.Log("Correct!");
                     Debug.Log("Puzzle Solved!");
                     PuzzleSolved = true;
